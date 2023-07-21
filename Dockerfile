@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:stable
 
 RUN apt-get update && \
     apt-get install -y \
@@ -11,6 +11,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN mkdir /var/log/danted/
 
 RUN echo 'set completion-ignore-case on' >> ~/.inputrc && \
     echo "export LS_OPTIONS='--color=auto'" >> ~/.bashrc && \
